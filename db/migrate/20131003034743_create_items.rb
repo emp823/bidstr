@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.integer :reserved_price
       t.integer :sold_price
-      t.boolean :sold_price
+      t.boolean :sold
       t.belongs_to :auction
       t.belongs_to :user
       t.timestamps
