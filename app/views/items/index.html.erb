@@ -1,0 +1,11 @@
+<h1>Items</h1>
+
+<div class="row">
+	<div class="span6">
+		<ul>
+		  <%= render @items %>
+	  </ul>
+	</div>
+</div>
+
+<p><%= link_to 'New Item', new_item_path, class: "btn btn-primary" %></p>
