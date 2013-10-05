@@ -1,0 +1,13 @@
+<div class="container item-profile">
+  <div class="row">
+    <div class="col-md-2">
+      <img src="http://placehold.it/200x200" alt="" class="img-responsive">
+    </div>
+    <div class="col-md-2">
+      <h3 class="inline" style="margin-top: 5px;"><%= @auction.name %></h3>
+      <hr>
+      <p>Active: <%= @auction.active? %></p>
+      <p>Item: <%= @auction.item.name %></p>
+    </div>
+  </div>
+</div>

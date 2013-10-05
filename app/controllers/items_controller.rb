@@ -39,6 +39,13 @@ class ItemsController < ApplicationController
     redirect_to items_url, notice: "Destroyed Item"
   end
 
+  def auction
+    @item = Item.find(params[:id])
+    auction = @item.create_auction(:name => "Auction for #{@item.name}", :active => true) if @item.auction.nil?
+    @item.update_attribute(:auction_id, auction.id)
+    redirect_to @item
+  end
+
   private
 
     def item_params

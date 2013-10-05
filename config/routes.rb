@@ -19,6 +19,12 @@ Bidstr::Application.routes.draw do
   end
 
   resources :items do
+    member do
+      post :auction
+    end
+  end
+
+  resources :auctions do
   end
   # Example resource route with options:
   #   resources :products do

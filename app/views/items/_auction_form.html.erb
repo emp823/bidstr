@@ -1,0 +1,12 @@
+<div id="auction_form" class="big-button">
+  <% if user_signed_in? %>
+  	<% if @item.auction.nil? %>
+      <%= render 'start_auction' %>
+    <% else %>
+      <%= link_to "See Auction", "auction_path" %>
+    <% end %>
+    <% if @item.sold? %>
+      <%= @item.sold_price %>
+    <% end %>
+  <% end %>  
+</div>
