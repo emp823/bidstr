@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def create
   	@item = Item.new(item_params)
   	if @item.save
-  	  redirect_to @item, notice: "Successfully created item!"
+  	  redirect_to @item, success: "Successfully created item!"
   	else
   	  render :new
   	end
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def update
   	@item = Item.find(params[:id])
 	  if @item.update_attributes(item_params)
-	    redirect_to @item, notice: "Updated Item!"
+	    redirect_to @item, success: "Updated Item!"
 	  else
 	    render :edit
 	  end
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_url, notice: "Destroyed Item"
+    redirect_to items_url, success: "Destroyed Item"
   end
 
   def auction

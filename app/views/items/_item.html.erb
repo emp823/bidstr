@@ -1,3 +1,13 @@
-<li>
-  <%= link_to item.name, item %>
+<li class="list-group-item">
+	<div>
+	  <div class="inline-block">
+	  	<img src="http://placehold.it/100x100" alt="" class="thumbnail">
+	  </div>
+	  <div class="inline-block" style="vertical-align: top;">
+	  	<h4><%= link_to item.name, item %></h4>
+	  	<br>
+	  	<p>Reserved Price: <%= item.reserved_price %></p>
+      <p>Sold: <%= item.sold ? "yes" : "no" %></p>
+	  </div>
+  </div>
 </li>

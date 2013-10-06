@@ -2,6 +2,7 @@
 
 body {
 	margin-top: 50px; /* 50px is the height of the navbar - change this if the navbarn height changes */
+  background-color: #9EA5BE;
 }
 .hero-spacer {
 	margin-top: 50px;
@@ -32,6 +33,16 @@ footer {
   display: inline;
 }
 
+.inline-block{
+  display: inline-block;
+}
+
 .item-profile{
   margin-top: 20px;
+}
+
+.auction {
+  width: 200px;
+  margin: 10px;
+  margin-bottom: 20px;
 }
