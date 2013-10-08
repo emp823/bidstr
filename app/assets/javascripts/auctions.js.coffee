@@ -4,4 +4,4 @@ $(window).ready ->
 	$container.imagesLoaded ->
 	  $container.masonry
 	    itemSelector: ".auction"
-	    columnWidth: 70
+	    columnWidth: 50

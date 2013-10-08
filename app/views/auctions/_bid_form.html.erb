@@ -1,4 +1,4 @@
-<%= form_for(current_user.bids.build(auction_id: @auction.id)) do |f| %>
+<%= form_for(current_user.bids.build(auction_id: @auction.id), html: {class: "form-inline"}) do |f| %>
   <div class="form-group">
   	<%= f.label :value, class: "sr-only" %>
   	<%= f.text_field :value, class: "form-control", placeholder: "Enter Your Bid" %>
