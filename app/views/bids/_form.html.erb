@@ -1,8 +1,0 @@
-<%= form_for(current_user.bids.build(auction_id: @auction.id), remote:true) do |f| %>
-  <div>
-  	<%= f.hidden_field :auction_id %>
-  	<%= f.label :value %>
-  	<%= f.text_field :value %>
-  </div>
-  <%= f.submit "Submit bid", class: "btn-selected round" %>
-<% end %>
