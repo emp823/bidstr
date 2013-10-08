@@ -2,7 +2,7 @@
 
 body {
 	margin-top: 50px; /* 50px is the height of the navbar - change this if the navbarn height changes */
-  background-color: #9EA5BE;
+  background-image: url('mochaGrunge.png');
 }
 .hero-spacer {
 	margin-top: 50px;
@@ -41,8 +41,12 @@ footer {
   margin-top: 20px;
 }
 
+.item-card{
+  height: 350px;
+  padding: 20px;
+  background-color: #c0c0c0;
+}
+
 .auction {
-  width: 200px;
-  margin: 10px;
   margin-bottom: 20px;
 }

@@ -1,13 +1,24 @@
 <div class="container item-profile">
   <div class="row">
-    <div class="col-md-2">
-      <img src="http://placehold.it/200x200" alt="" class="img-responsive">
+    <div class="col-lg-12 thumbnail item-card">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="http://placehold.it/200x200" alt="" class="img-responsive thumbnail">
+        </div>
+        <div class="col-md-10 thumbnail">
+          <h3 class="inline" style="margin-top: 5px;"><%= @auction.name %></h3>
+          <span style="display: block;" class="text-success">Auction <%= @auction.active ? "Live" : "Over" %></span>
+          <hr>
+          <p>Item for Sale: <%= link_to @auction.item.name, @auction.item if !@auction.item.nil? %></p>
+          <p><b>Current Bid:</b> <span id="current-bid"><%= @auction.bids.count > 0 ? number_to_currency(@auction.bids.last.value) : "None" %></span></p>
+        </div>
+      </div>
+      <br>
+      <div class="col-lg-6">
+        <div class="row">
+          <%= render "bid_form" if user_signed_in? %>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2">
-      <h3 class="inline" style="margin-top: 5px;"><%= @auction.name %></h3>
-      <hr>
-      <p>Active: <%= @auction.active? %></p>
-      <p>Item: <%= @auction.item.name %></p>
-    </div>
-  </div>
+  </div> <!-- end of row -->
 </div>

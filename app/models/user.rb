@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name, :email
   has_many :auctions, through: :bids
+  has_many :bids
 end
