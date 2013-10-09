@@ -3,8 +3,8 @@
     <img src="http://placehold.it/800x500" alt="">
     <div class="caption">
       <h3><%= link_to auction.name, auction %></h3>
-      <p>This would be a great spot to feature some brand new products!</p>
-      <p><a href="#" class="btn btn-primary">Bid Now!</a> <a href="#" class="btn btn-default">More Info</a></p>
+      <p><b>Current Bid:</b> <span id="current-bid"><%= auction.bids.count > 0 ? number_to_currency(auction.bids.last.value) : "None" %></span></p>
+      <p><a href= <%= auction_path(auction) %> class="btn btn-primary">Bid Now!</a></p>
     </div>
   </div>
 </div>

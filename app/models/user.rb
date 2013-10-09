@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email
   has_many :auctions, through: :bids
   has_many :bids
+
+  def is_auctioneer?
+  	current_user.auctioneer?
+	end
 end

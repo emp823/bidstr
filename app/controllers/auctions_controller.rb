@@ -1,4 +1,6 @@
 class AuctionsController < ApplicationController
+	before_filter :check_admin, except: [:index, :show]
+
 	def index
 		@auctions = Auction.all
 	end

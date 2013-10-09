@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
   end
+
+  private
+    def check_admin
+      unless current_user.admin?
+        redirect_to root_url
+      end
+    end
 end

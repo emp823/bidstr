@@ -1,15 +1,17 @@
 <div class="row">
-	<div class="col-lg-4 text-center">
-		<h1>Items</h1>
+	<div class="col-lg-4 col-lg-offset-4 text-center">
+		<h1 class="thumbnail">Items</h1>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-lg-4 hero-feature">
+	<div class="col-lg-4 col-lg-offset-4 hero-feature">
 	  <ul class="list-group">
 	    <%= render @items %>
     </ul>
 	</div>
 </div>
 
-<p><%= link_to 'New Item', new_item_path, class: "btn btn-primary" %></p>
+<% if user_signed_in? && current_user.auctioneer? %>
+  <p><%= link_to 'New Item', new_item_path, class: "btn btn-primary" %></p>
+<% end %>
