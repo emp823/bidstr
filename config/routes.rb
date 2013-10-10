@@ -28,7 +28,9 @@ Bidstr::Application.routes.draw do
   end
 
   resources :auctions do
-    resources :bids
+    member do
+      get :call
+    end
   end
 
   # Example resource route with options:

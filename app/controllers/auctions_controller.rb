@@ -15,7 +15,7 @@ class AuctionsController < ApplicationController
 	def update
 		@auction = Auction.find(params[:id])
 		if @auction.update_attributes(auction_params)
-			redirect_to @auction, success: "Updated Auction"
+			redirect_to @auction, :flash => {:success => "Updated auction!"}
 		else
 			redirect_to @auction
 		end
@@ -26,6 +26,12 @@ class AuctionsController < ApplicationController
 
 	def show
 		@auction = Auction.find(params[:id])
+	end
+
+	def call
+		@auction = Auction.find(params[:id])
+		@auction.call
+		redirect_to @auction, :flash => {:success => "Called auction"}
 	end
 
 	private

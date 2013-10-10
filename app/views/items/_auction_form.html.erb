@@ -3,10 +3,10 @@
   	<% if @item.auction.nil? %>
       <%= render 'start_auction' %>
     <% else %>
-      <%= link_to "See Auction", "auction_path" %>
+      <%= link_to "See Auction", auction_path(@item.auction) %>
     <% end %>
     <% if @item.sold? %>
-      <%= @item.sold_price %>
+      <p>Price: <%= @item.sold_price %></p>
     <% end %>
   <% end %>  
 </div>

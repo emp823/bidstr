@@ -15,4 +15,14 @@ class Auction < ActiveRecord::Base
   def submit_bid (user_id, value)
   	bids.create!(user_id: user_id, auction_id: self.id, value: value)
   end
+
+  def call
+    item = self.item
+    self.update_attributes(:active => false)
+    if self.bids.count > 0
+      price = self.bids.last.value
+      user = self.bids.last.user_id
+      item.update_attributes(:sold => true, :sold_price => price, :user_id => user)
+    end
+  end
 end
