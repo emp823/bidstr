@@ -1,8 +1,9 @@
 class AuctionsController < ApplicationController
+	before_filter :authenticate_user!, except: [:index, :show]
 	before_filter :check_admin, except: [:index, :show]
 
 	def index
-		@auctions = Auction.all
+		@auctions = Auction.where(:active => true)
 	end
 
 	def new
@@ -30,7 +31,7 @@ class AuctionsController < ApplicationController
 
 	def call
 		@auction = Auction.find(params[:id])
-		@auction.call
+		@auction.call if @auction.active?
 		redirect_to @auction, :flash => {:success => "Called auction"}
 	end
 

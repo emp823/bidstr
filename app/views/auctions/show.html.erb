@@ -11,7 +11,7 @@
           <hr>
           <p>Item for Sale: <%= link_to @auction.item.name, @auction.item if !@auction.item.nil? %></p>
           <p><b>Current Bid:</b> <span id="current-bid"><%= @auction.bids.count > 0 ? number_to_currency(@auction.bids.last.value) : "None" %></span></p>
-          <% if user_signed_in? && current_user.auctioneer? %>
+          <% if user_signed_in? && current_user.auctioneer? && @auction.active? %>
             <%= link_to "Call Auction", call_auction_path(@auction), class: "btn btn-danger" %>
           <% end %>
         </div>

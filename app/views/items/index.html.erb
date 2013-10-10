@@ -1,17 +1,35 @@
 <div class="row">
-	<div class="col-lg-4 col-lg-offset-4 text-center">
+	<div class="col-lg-2">
+		<% if user_signed_in? && current_user.auctioneer? %>
+			<br>
+		  <p><%= link_to 'New Item', new_item_path, class: "btn btn-primary" %></p>
+		<% end %>
+	</div>
+	<div class="col-lg-4 col-lg-offset-2 text-center">
 		<h1 class="thumbnail">Items</h1>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-lg-4 col-lg-offset-4 hero-feature">
-	  <ul class="list-group">
-	    <%= render @items %>
-    </ul>
+    <%= form_tag(items_path, :method => "get", :class => "form-inline", id: "search-form") do %>
+	    <div class="form-group">
+	    	<div class="col-lg-9">
+		      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Items" %>
+		      <!-- In order to have the "search" icon int the button, we need to use plain HTML instead 
+		           of using a Rails form helper -->
+		    </div>
+		      <%= submit_tag "Submit", class: "btn btn-success" %>
+	    </div>
+	  <% end %>
+	  <hr>
 	</div>
 </div>
 
-<% if user_signed_in? && current_user.auctioneer? %>
-  <p><%= link_to 'New Item', new_item_path, class: "btn btn-primary" %></p>
-<% end %>
+<div class="row">
+	<div class="col-lg-4 col-lg-offset-4">
+		<ul class="list-group">
+  		<%= render @items %>
+    </ul>
+	</div>
+</div>

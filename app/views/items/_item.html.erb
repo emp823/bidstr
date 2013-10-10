@@ -6,8 +6,14 @@
 	  <div class="inline-block" style="vertical-align: top;">
 	  	<h4><%= link_to item.name, item %></h4>
 	  	<br>
-	  	<p>Reserved Price: <%= item.reserved_price %></p>
+	  	<p>Reserved Price: <%= number_to_currency(item.reserved_price) %></p>
       <p>Sold: <%= item.sold ? "yes" : "no" %></p>
+      <p>Auction Status: <%= item.auction_status %></p>
+      <% if !item.auction.nil? && !item.auction.active? %>
+      	<p>Sale Price: <%= number_to_currency(item.sold_price) %></p>
+      	<p>Sold to: <%= link_to item.user.name, item.user %></p>
+      	<p>Auction was a <%= (item.sold_price - item.reserved_price) > 0 ? "Success" : "Failure" %></p>
+      <% end %>
 	  </div>
   </div>
 </li>

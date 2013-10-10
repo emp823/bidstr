@@ -1,6 +1,13 @@
 class ItemsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :check_admin, except: [:index, :show]
+
   def index
-  	@items = Item.all
+    if params[:search]
+      @items = Item.search(params[:search]).order("created_at DESC")
+    else
+      @items = Item.all
+    end
   end
 
   def new
