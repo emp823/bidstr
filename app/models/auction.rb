@@ -2,7 +2,7 @@ class Auction < ActiveRecord::Base
   has_one :item
   has_many :users, through: :bids
   has_many :bids
-  accepts_nested_attributes_for :bids
+  validates_presence_of :name
 
   def check_bid (value)
   	if self.bids.count > 0

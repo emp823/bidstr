@@ -35,6 +35,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do
+	gem 'factory_girl_rails', '4.2.1'
+end
+
 group :development, :test do
 	gem 'sqlite3'
   gem 'rspec-rails', '~> 2.0'
